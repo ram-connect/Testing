@@ -313,6 +313,8 @@ cd CYBERLYNK
 ```
 
 ### Install Dependencies
+*Note: A detailed `requirements.txt` file is included in the root directory for documentation and reporting purposes. However, as this is a Node.js project, dependencies are natively installed via `npm`.*
+
 ```bash
 # Terminal 1 - Backend
 cd backend
@@ -321,7 +323,7 @@ npm install
 # Terminal 2 - Frontend
 cd frontend
 npm install
-```
+
 
 ### Database Setup
 ```bash
