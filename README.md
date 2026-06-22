@@ -326,7 +326,6 @@ npm install
 
 
 ### Database Setup
-```bash
 cd backend
 npx prisma generate
 npx prisma db push
