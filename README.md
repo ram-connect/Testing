@@ -66,15 +66,19 @@ CYBERLYNK centralizes the workflow into a single, dark-themed, distraction-free 
 
 ### 2. Cross-Case Correlation Engine
 * **Purpose:** Uncover hidden fraud networks.
-* **Functionality:** Cross-references all extracted entities within an investigation dossier.
-* **Inputs/Outputs:** Input: Investigation ID. Output: `Correlation` records linking multiple Cases.
-* **Benefits:** Instantly turns isolated complaints into interconnected, prosecutable conspiracy cases.
+* **Functionality:** Cross-references all extracted entities within an investigation dossier. When correlations are visualized in the interactive graph, users can click directly on nodes for deeper analysis:
+  * **IP Address Nodes:** Instantly trigger an IP Intelligence lookup to reveal geolocation, ISP, and service provider details in a dedicated side panel.
+  * **Phone Number Nodes:** Clicking a phone number seamlessly generates structured, entity-specific CDR (Call Detail Record) and IPDR (IP Detail Record) reports based on extracted logs.
+* **Inputs/Outputs:** Input: Investigation ID / Click Event. Output: Interactive side panels and deep-dive structured reports.
+* **Benefits:** Transforms static graph nodes into actionable pivot points for deep investigation.
 
-### 3. Interactive Movement Map (Suspect Tracking)
-* **Purpose:** Geographically trace suspects.
-* **Functionality:** Ingests CDR (Call Detail Record) data, rendering high-performance interactive maps using `react-leaflet`. Includes an animated playback engine to trace routes node-by-node.
-* **Inputs/Outputs:** Input: Coordinates sequence. Output: Animated polyline/marker traversal.
-* **Benefits:** Visualizes suspect routines and physical locations for targeted physical raids.
+### 3. Interactive Movement Map & Heatmap
+* **Purpose:** Geographically trace suspects and identify behavioral hotspots.
+* **Functionality:** Ingests coordinates directly from the CDR files linked to correlated phone numbers. Uses `react-leaflet` to render two distinct visualization modes:
+  * **Movement Map:** Features an animated playback engine that sequentially traces a suspect's route node-by-node.
+  * **Heatmap:** Uses `leaflet.heat` to instantly visualize high-frequency geographical clusters (e.g., discovering a suspect's primary residence or base of operations).
+* **Inputs/Outputs:** Input: CDR Coordinate sequence. Output: Animated polylines and gradient-based heatmaps.
+* **Benefits:** Visualizes suspect routines and physical hotspots for targeted physical raids.
 
 ### 4. Forensic PDF Report Generation
 * **Purpose:** Court-ready documentation.
@@ -135,8 +139,12 @@ flowchart LR
     D --> E{Correlation Scan}
     E -->|Match Found| F[Flag Network]
     E -->|No Match| G[Isolated Case]
-    F --> H[Visualize on Graph/Map]
-    H --> I[Generate Forensic PDF]
+    F --> H[Visualize on Interactive Graph]
+    H -->|Click IP Node| J[IP Geo/ISP Intelligence]
+    H -->|Click Phone Node| K[Generate Structured CDR/IPDR Report]
+    K --> L[Render Movement Map & Heatmap]
+    L --> I[Generate Forensic PDF]
+    J --> I
 ```
 
 ---
