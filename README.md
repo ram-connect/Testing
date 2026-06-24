@@ -365,7 +365,7 @@ ABUSEIPDB_KEY="your-abuseipdb-api-key"
 ENCRYPTION_KEY="your-32-byte-hex-key"
 #16-byte hexadecimal key for Initialization Vector for AES-256-CBC Encryption-at-Rest
 ENCRYPTION_IV="your-16-byte-hex-key"
-
+```
 ---
 
 ## Performance Considerations
