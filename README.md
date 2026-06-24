@@ -323,9 +323,10 @@ npm install
 # Terminal 2 - Frontend
 cd frontend
 npm install
-
+```
 
 ### Database Setup
+```bash
 cd backend
 npx prisma generate
 npx prisma db push
@@ -353,24 +354,11 @@ DATABASE_URL="file:./prisma/cyberlynk.db"
 JWT_SECRET="your-super-secret-key"
 
 # Email Configuration for Nodemailer OTP
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT=587
-SMTP_USER="your-email@gmail.com"
-SMTP_PASS="your-app-password"
-SMTP_SECURE=false
-
-# IPINFO api key for ip analysis
-IPINFO_TOKEN="your-ipinfo-api"
-
-#Abuseipdb api key for ip analysis 
-ABUSEIPDB_KEY="your-abuseipdb-api-key"
+EMAIL_USER="your-email@gmail.com"
+EMAIL_PASS="your-app-password"
 
 # 32-byte hexadecimal key for AES-256-CBC Encryption-at-Rest
 ENCRYPTION_KEY="your-32-byte-hex-key"
-
-#16-byte hexadecimal key for Initialization Vector for AES-256-CBC Encryption-at-Rest
-ENCRYPTION_IV="your-16-byte-hex-key"
-
 ```
 
 ---
@@ -397,13 +385,7 @@ ENCRYPTION_IV="your-16-byte-hex-key"
 * **PostgreSQL Migration:** Transition from SQLite to PostgreSQL for massive horizontal scaling.
 * **Web Workers:** Shift PDF rendering and large Regex extraction loops to background Web Workers to prevent main-thread UI locking on 10,000+ page datasets.
 * **Telecom API Integration:** Integrate directly with telecom providers to auto-fetch CDRs via secure tunneling, bypassing the need for CSV uploads.
-
----
-
-## License
-Proprietary / Restricted. For Law Enforcement and Authorized Personnel Use Only.
-
 ---
 
 ## Contact Information
-For system deployment support or to report security vulnerabilities, please contact the internal Cyber Intelligence IT division.
+For system deployment support or to report security vulnerabilities, please contact me at [ram.mailconnect@gmail.com]
