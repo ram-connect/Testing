@@ -372,6 +372,103 @@ ENCRYPTION_IV="your-16-byte-hex-key"
 ```
 
 ---
+## Environment Variables Setup
+```
+Step 1: Setup SQLite Database
+No account or API key is required.
+Create the database automatically:
+
+cd backend
+npx prisma db push
+
+This will create:
+backend/prisma/cyberlynk.db
+Environment Variable:
+DATABASE_URL="file:./prisma/cyberlynk.db"
+
+Step 2: Generate JWT Secret
+Open terminal:
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+Copy the generated value.
+
+Example:
+JWT_SECRET="paste-generated-value-here"
+
+Step 3: Configure Gmail SMTP
+Enable 2-Factor Authentication
+Open:
+https://myaccount.google.com/security
+Enable:
+2-Step Verification
+Generate Gmail App Password
+Open:
+https://myaccount.google.com/apppasswords
+Select:
+App: Mail
+Device: Other
+Enter:
+CYBERLYNK
+Google will generate a password.
+
+Example:
+abcd efgh ijkl mnop
+Use it in .env
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT=587
+SMTP_USER="your-email@gmail.com"
+SMTP_PASS="generated-app-password"
+SMTP_SECURE=false
+
+Step 4: Setup IPInfo API
+Purpose:
+IP Geolocation
+ISP Lookup
+ASN Information
+Country and City Detection
+
+Create Account
+Visit:
+https://ipinfo.io
+Generate Token
+Dashboard → Tokens → Create Token
+Copy token.
+
+Example:
+IPINFO_TOKEN="your-ipinfo-token"
+
+Step 5: Setup AbuseIPDB API
+Purpose:
+IP Reputation
+Abuse Reports
+Malicious Activity Detection
+
+Create Account
+Visit:
+https://www.abuseipdb.com
+Generate API Key
+Account → API
+Copy API Key.
+
+Example:
+ABUSEIPDB_KEY="your-abuseipdb-key"
+
+Step 6: Generate AES-256 Encryption Key
+Open terminal:
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+Copy output.
+
+Example:
+ENCRYPTION_KEY="generated-64-character-hex-key"
+
+Step 7: Generate AES Initialization Vector
+Open terminal:
+node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"
+Copy output.
+
+Example:
+ENCRYPTION_IV="generated-32-character-hex-value"
+```
+---
 
 ## Performance Considerations
 
