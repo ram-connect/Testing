@@ -308,8 +308,7 @@ sequenceDiagram
 
 ### Clone Repository
 ```bash
-git clone https://github.com/your-org/CYBERLYNK.git
-cd CYBERLYNK
+The files are not uploaded in github for now so download the files that are given by the developer.
 ```
 
 ### Install Dependencies
