@@ -308,7 +308,7 @@ sequenceDiagram
 
 ### Clone Repository
 ```bash
-The files are not uploaded in github for now so download the files that are given by the developer.
+The files are not uploaded on github for now so download the files that are given by the developer.
 ```
 
 ### Install Dependencies
