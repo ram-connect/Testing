@@ -1,3 +1,5 @@
+<!-- This is the Readme.md file you can view this on " https://github.com/ram-connect/Testing/blob/main/README.md " for proper visual view or download the file and view it on your system -->
+
 # CYBERLYNK
 
 <div align="center">
@@ -325,11 +327,14 @@ npm install
 ```
 
 ### Database Setup
+
+When running the project for the first time after downloading, you must initialize the local database.
+
 ```bash
 cd backend
-npx prisma generate
 npx prisma db push
 ```
+*(Note: This command will create the SQLite database file and automatically generate the Prisma Client. You only need to run this on your first setup or when the database schema changes.)*
 
 ### Run Application
 ```bash
@@ -348,23 +353,18 @@ npm run dev
 ```env
 # Database connection string
 DATABASE_URL="file:./prisma/cyberlynk.db"
+
 # JWT Signing Secret (Must be 32+ cryptographically random chars)
 JWT_SECRET="your-super-secret-key"
+
 # Email Configuration for Nodemailer OTP
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT=587
-SMTP_USER="your-email@gmail.com"
-SMTP_PASS="your-app-password"
-SMTP_SECURE=false
-# IPINFO api key for ip analysis
-IPINFO_TOKEN="your-ipinfo-api"
-#Abuseipdb api key for ip analysis
-ABUSEIPDB_KEY="your-abuseipdb-api-key"
+EMAIL_USER="your-email@gmail.com"
+EMAIL_PASS="your-app-password"
+
 # 32-byte hexadecimal key for AES-256-CBC Encryption-at-Rest
 ENCRYPTION_KEY="your-32-byte-hex-key"
-#16-byte hexadecimal key for Initialization Vector for AES-256-CBC Encryption-at-Rest
-ENCRYPTION_IV="your-16-byte-hex-key"
 ```
+
 ---
 
 ## Performance Considerations
